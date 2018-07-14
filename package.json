@@ -1,8 +1,8 @@
 {
-  "name": "y",
+  "name": "welcome2018-vue",
   "version": "1.0.0",
-  "description": "welcome2018zjut",
-  "author": "Congb19",
+  "description": "A Vue.js project",
+  "author": "Congb19 <347006087@qq.com>",
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",

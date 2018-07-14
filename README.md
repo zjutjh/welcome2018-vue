@@ -1,4 +1,4 @@
-![](/UI/logo1.jpg)
+![](\UI\logo1.jpg)
 
 # welcome2018-vue
 
@@ -25,8 +25,6 @@
 ## Build Setup
 
 ```bash
-# 创建失误 多走一步
-cd welcome2018-vue
 
 # install dependencies
 npm install
