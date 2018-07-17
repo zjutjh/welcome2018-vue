@@ -19,7 +19,7 @@
 #### 方案
 
 - 使用vue为前端技术方案
-- 后端采用php7.2(phalcon框架)+redis
+- 后端采用lumen+redis
 - 
 
 ## Build Setup
