@@ -14,6 +14,10 @@
       </div>
       <label class="select">
         <label>查</label>
+        <input type="radio" checked="checked" name="choose" value="num" style="border:none;"/>
+        <label>学号班级</label>
+        <input type="radio" checked="checked" name="choose" value="room" />
+        <label>寝室</label>
       </label>
       <button class="loginbutton" name="login" v-on:click="sendInfo" v-loading.fullscreen.lock="fullscreen">查询</button>
     </div>
@@ -74,6 +78,8 @@ html{
   color: white;
   height: 5.375rem;
   font-size: 2.25rem;
+  outline:none;
+  /*caret-color: rgba(255, 255, 255, 100);*/
 }
 .item1{
   top: 30.625rem;
