@@ -4,15 +4,17 @@
       <img class="logo1" src="../../UI/logo.png">
     </div>
     <div class="form">
-      <div class="info-item">
-        <label class="label namelabel">姓名</label>
-        <input type="text" name="name" id="name" placeholder="" v-model="name">
+      <div class="info-item item1">
+        <!--<label class="label namelabel">姓名</label>-->
+        <input class="inputtext" type="text" name="name" id="name" placeholder="  姓名" v-model="name">
       </div>
-      <div class="info-item">
-        <label class="label passlabel">身份证号</label>
-        <input type="text" name="pass" id="pass" placeholder="" v-model="name">
+      <div class="info-item item2">
+        <!--<label class="label passlabel">身份证号</label>-->
+        <input class="inputtext" type="text" name="pass" id="pass" placeholder="  身份证号" v-model="name">
       </div>
-      <p class="select">查</p>
+      <label class="select">
+        <label>查</label>
+      </label>
       <button class="loginbutton" name="login" v-on:click="sendInfo" v-loading.fullscreen.lock="fullscreen">查询</button>
     </div>
     <p class="cr">©浙江工业大学精弘网络</p>
@@ -30,50 +32,67 @@
 </script>
 
 <style scoped>
+html{
+  font-size:16px;
+  font-family: 等线;
+}
 .content{
   position: absolute;
-  padding: 0rem;
-  margin: 0rem;
-  height: 100%;
-  width: 100%;
-  background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+  padding: 0;
+  margin: 0;
+  height: 83.3125rem;
+  width: 46.875rem;
+  background-image: linear-gradient(120deg, #5694dc 0%, #c2e9fb 90%);
 }
 .logo1{
   position: relative;
-  top: 4rem;
+  top: 9rem;
   width:24%;
   height:24%;
 }
 .info-item{
   position: absolute;
-  top: 17rem;
-  width: 15rem;
-
+  top: 15rem;
+  /*width: 20rem;*/
+  left: 5.75rem;
 }
-.label{
+
+/*.label{
   position: absolute;
   color: white;
 
   left: 7rem;
 }
 .namelabel {
-  left: 0;
-  top: 2rem;
+  top: 1rem;
 }
 .passlabel {
-  left: 0;
-  top: 6rem;
-}
+  top: 5rem;
+}*/
 
+.inputtext{
+  color: white;
+  height: 5.375rem;
+  font-size: 2.25rem;
+}
+.item1{
+  top: 30.625rem;
+}
+.item2{
+  top: 40rem;
+}
 #name{
   position: absolute;
   BACKGROUND-COLOR: transparent;
   border-left: 0 white solid;
   border-right: 0 white solid;
   border-top: 0 white solid;
-  border-bottom: 0.1rem white solid;
-  top: 2rem;
-  width: 12rem;
+  border-bottom: 0.125rem white solid;
+  width: 35.375rem;
+}
+#name::-webkit-input-placeholder{
+  color: white;
+  font-size: 2.25rem;
 }
 #pass{
   position: absolute;
@@ -81,27 +100,38 @@
   border-left: 0 white solid;
   border-right: 0 white solid;
   border-top: 0 white solid;
-  border-bottom: 0.1rem white solid;
-  top: 6rem;
-  width: 12rem;
+  border-bottom: 0.125rem white solid;
+  width: 35.375rem;
+}
+#pass::-webkit-input-placeholder{
+  color: white;
+  font-size: 2.25rem;
 }
 .select{
-  top: 5rem;
+  position: absolute;
+  left: 7rem;
+  top: 50.5625rem;
+  color: white;
+  font-size: 1.875rem;
 }
 .loginbutton{
   position: absolute;
-  left: 15rem;
-  top: 28rem;
-  width: 6rem;
-  height: 2rem;
-  border: 0.1rem white solid;
+  left: 29.375rem;
+  top: 54.25rem;
+  width: 11.75rem;
+  height: 4.125rem;
+  border: 0.125rem white solid;
   background: rgba(255, 255, 255, 0);
   color: white;
+  font-size: 2rem;
+  font-style: normal;
 }
 .cr{
   position: absolute;
-  left: 1rem;
+  left: 23.4375rem;
+  top: 77.375rem;
   bottom: 0;
-  color: aliceblue;
+  color: #6585be;
+  font-size: 1.75rem;
 }
 </style>
