@@ -19,7 +19,7 @@
         <input type="radio" checked="checked" name="choose" value="room" />
         <label>寝室</label>
       </label>
-      <button class="loginbutton" name="login" v-on:click="sendInfo" v-loading.fullscreen.lock="fullscreen">查询</button>
+      <button class="loginbutton" name="login" v-on:click="sendInfo" v-loading.fullscreen.lock="fullscreen">查询！</button>
     </div>
     <p class="cr">©浙江工业大学精弘网络</p>
   </div>
