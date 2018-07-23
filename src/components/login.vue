@@ -14,7 +14,7 @@
       </div>
       <label class="select">
         <label>查</label>
-        <input type="radio" checked="checked" name="choose" value="num" style="border:none;"/>
+        <input type="radio" checked="checked" name="choose" value="num" />
         <label>学号班级</label>
         <input type="radio" checked="checked" name="choose" value="room" />
         <label>寝室</label>
