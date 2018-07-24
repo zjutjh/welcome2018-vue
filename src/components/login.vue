@@ -6,20 +6,22 @@
     <div class="form">
       <div class="info-item item1">
         <!--<label class="label namelabel">姓名</label>-->
-        <input class="inputtext" type="text" name="name" id="name" placeholder="  姓名" v-model="name">
+        <input class="inputtext" type="text" name="name" id="name" placeholder="姓名" v-model="name">
       </div>
       <div class="info-item item2">
         <!--<label class="label passlabel">身份证号</label>-->
-        <input class="inputtext" type="text" name="pass" id="pass" placeholder="  身份证号" v-model="name">
+        <input class="inputtext" type="text" name="pass" id="pass" placeholder="身份证号" v-model="name">
       </div>
       <label class="select">
         <label>查</label>
-        <input type="radio" checked="checked" name="choose" value="num" />
+        <input class="radio radio1" type="radio" checked="checked" name="choose" value="num" />
+        <span class="radioInput"></span>
         <label>学号班级</label>
-        <input type="radio" checked="checked" name="choose" value="room" />
+        <input class="radio radio2"type="radio" checked="checked" name="choose" value="room" />
+        <span class="radioInput"></span>
         <label>寝室</label>
       </label>
-      <button class="loginbutton" name="login" v-on:click="sendInfo" v-loading.fullscreen.lock="fullscreen">查询！</button>
+      <button class="loginbutton" name="login" v-on:click="sendInfo" v-loading.fullscreen.lock="fullscreen">查询</button>
     </div>
     <p class="cr">©浙江工业大学精弘网络</p>
   </div>
@@ -27,6 +29,7 @@
 </template>
 
 <script>
+  //!function(a,b,c){function q(){var d=Math.min((o?e[h]().width:f.innerWidth)/(a/b),c);d!=p&&(k.innerHTML="html{font-size:"+d+"px!important;"+n+"}",p=d)}function r(){clearTimeout(l),l=setTimeout(q,500)}var l,d=document,e=d.documentElement,f=window,g="addEventListener",h="getBoundingClientRect",i="pageshow",j=d.head||d.getElementsByTagName("HEAD")[0],k=d.createElement("STYLE"),m="text-size-adjust:100%;",n="-webkit-"+m+"-moz-"+m+"-ms-"+m+"-o-"+m+m,o=h in e,p=null;a=a||320,b=b||16,c=c||32,j.appendChild(k),d[g]("DOMContentLoaded",q,!1),"on"+i in f?f[g](i,function(a){a.persisted&&r()},!1):f[g]("load",r,!1),f[g]("resize",r,!1),q()}(320,10,100);
     import tips from '@/components/tips.vue'
     export default {
         name: "main",
@@ -79,6 +82,7 @@ html{
   height: 5.375rem;
   font-size: 2.25rem;
   outline:none;
+  padding-left: 1.125rem;
   /*caret-color: rgba(255, 255, 255, 100);*/
 }
 .item1{
@@ -119,7 +123,17 @@ html{
   top: 50.5625rem;
   color: white;
   font-size: 1.875rem;
+  margin:20px 20px 0 0;
+  display:inline-block;
+
 }
+/*
+.radio{display:none}
+.radioInput{background-color:#fff;border:2px solid rgba(0,0,0,0.15);border-radius:100%;display:inline-block;height:36px;margin-right:10px;margin-top:-1px;vertical-align:middle;width:36px;line-height:1}
+.radio:checked + .radioInput:after{background-color:#00A1E9;border-radius:100%;content:"";display:inline-block;height:26px;margin-left:5px;margin-top:5px;width:26px}
+checkbox.radioInput,.radio:checked + checkbox.radioInput:after{border-radius:0}
+.demo--radio:checked + .radioInput{border:2px solid #00A1E9;}
+*/
 .loginbutton{
   position: absolute;
   left: 29.375rem;
