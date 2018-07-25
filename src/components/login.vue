@@ -104,7 +104,6 @@ html{
   /*width: 20rem;*/
   left: 5.75rem;
 }
-
 /*.label{
   position: absolute;
   color: white;
@@ -117,7 +116,6 @@ html{
 .passlabel {
   top: 5rem;
 }*/
-
 .inputtext{
   color: white;
   height: 5.375rem;
@@ -195,7 +193,6 @@ checkbox.radioInput,.radio:checked + checkbox.radioInput:after{border-radius:0}
   color: #6585be;
   font-size: 1.75rem;
 }
-
 /*
 .loading {
   position: absolute;
@@ -206,9 +203,7 @@ checkbox.radioInput,.radio:checked + checkbox.radioInput:after{border-radius:0}
   left: 0;
   bottom: 0;
   background-color: rgba(255, 255, 255, .9);
-
 }
-
 .double {
   height: 10%;
   width: 10%;
@@ -217,7 +212,6 @@ checkbox.radioInput,.radio:checked + checkbox.radioInput:after{border-radius:0}
   left: 50%;
   transform: translate(-50%, -50%);
 }
-
 .double-bounce1, .double-bounce2 {
   width: 100%;
   height: 100%;
@@ -230,7 +224,6 @@ checkbox.radioInput,.radio:checked + checkbox.radioInput:after{border-radius:0}
   -webkit-animation: bounce 2.0s infinite ease-in-out;
   animation: bounce 2.0s infinite ease-in-out;
 }
-
 .double-bounce2 {
   -webkit-animation-delay: -1.0s;
   animation-delay: -1.0s;
