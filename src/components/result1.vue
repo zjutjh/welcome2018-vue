@@ -3,8 +3,21 @@
     <div class="logo">
       <img class="logo1" src="../../UI/logo.png">
     </div>
-    <div>wywwywwyw</div>
+    <div class="resultpage">
+      <div class="schoollogo">
+        <img class="logo2" src="../../UI/校徽.png">
+      </div>
+      <div class="text">
+        <div class="name01">姓名：<br/></div>
+        <div class="number01">学号：<br/></div>
+        <div class="class01">班级：<br/></div>
+        <div class="hteacher01">班主任：<br/></div>
+      </div>
+    </div>
+    <button class="resultbutton" name="result1" v-on:click="" v-loading.fullscreen.lock="fullscreen">返回</button>
+    <p class="cr">©浙江工业大学精弘网络</p>
   </div>
+
 </template>
 
 <script>
@@ -35,5 +48,78 @@
     top: 9rem;
     width:24%;
     height:24%;
+  }
+  .resultpage{
+    position: relative;
+    top:15rem;
+    margin-left: auto;
+    margin-right: auto;
+    height: 30%;
+    width: 80%;
+    background-color:rgba(255,255,255,0.5);
+    border-radius:1.5rem;
+    box-shadow: 0.25rem 0.25rem 1rem #888888;
+  }
+  .logo2{
+    /*margin-right: auto;
+    margin-left: auto;
+    height: 24rem;*/
+    height: 90%;
+    overflow: auto;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0.1;
+  }
+  .text{
+    position: relative;
+    top: 0;
+    left: 0;
+    font-size:2.1rem;
+    line-height: 3rem;
+    color: rgb(19,63,106);
+  }
+  .name01{
+    position: relative;
+    top:5rem;
+    left: -7rem;
+  }
+  .number01{
+    position: relative;
+    top:6rem;
+    left: -7rem;
+  }
+  .class01{
+    position: relative;
+    top:7rem;
+    left: -7rem;
+  }
+  .hteacher01{
+    position: relative;
+    top:8rem;
+    left: -6rem;
+  }
+  .resultbutton{
+    position: absolute;
+    left: 29.375rem;
+    top: 56rem;
+    width: 11.75rem;
+    height: 4.125rem;
+    border: 0.125rem white solid;
+    background: rgba(255, 255, 255, 0);
+    color: white;
+    font-size: 2rem;
+    font-style: normal;
+  }
+  .cr{
+    position: absolute;
+    left: 23.4375rem;
+    top: 77.375rem;
+    bottom: 0;
+    color: #6585be;
+    font-size: 1.75rem;
   }
 </style>
