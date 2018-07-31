@@ -8,26 +8,57 @@
         <img class="logo2" src="../../UI/校徽.png">
       </div>
       <div class="text">
-        <div class="name01">姓名：<br/></div>
-        <div class="number01">学号：<br/></div>
-        <div class="class01">班级：<br/></div>
-        <div class="hteacher01">班主任：<br/></div>
+        <div class="name01">姓名：<span>{{ data.name}}</span><br/></div>
+        <div class="number01">学号：{{ }}<br/></div>
+        <div class="class01">班级：<span>{{ }}</span><br/></div>
+        <div class="hteacher01">班主任：<span>{{ }}</span><br/></div>
+        <div class="fellowvillager01">家乡群：<span>{{ }}</span><br/></div>
       </div>
     </div>
-    <button class="resultbutton" name="result1" v-on:click="" v-loading.fullscreen.lock="fullscreen">返回</button>
+    <button class="resultbutton" name="result1" v-on:click="inToresult2" v-loading.fullscreen.lock="fullscreen">寝室信息</button>
     <p class="cr">©浙江工业大学精弘网络</p>
   </div>
 
 </template>
 
 <script>
-    import tips from '../components/tips.vue'
     import router from '../router/index.js'
-
     export default {
-        name: "result1",
-        components: tips,
-    }
+      name: "result1",
+      created() {
+        this.loading = true;
+        this.data = this.$route.params.data.body.data;
+        console.log(this.data);
+        this.loading = false;
+      },
+      data() {
+        return {
+          data: {},
+          loading: false
+        }
+      },
+      methods:{
+        inToresult2()
+        {
+          alert("未到查询时间！")
+          /*
+          this.loading = true;
+          let _this = this;
+          this.$http.post('http://localhost/new-stu/stu-api/test.php',{name: _this.name, pass: _this.pass},
+          {emulateJSON: true}
+          ).then(function (res){
+            router.push({
+              name: 'result2',
+              params: {
+                data: res
+              }
+            })
+          */
+        }
+
+
+        }
+      }
 </script>
 
 <style scoped>
@@ -100,6 +131,12 @@
   .hteacher01{
     position: relative;
     top:8rem;
+    left: -6rem;
+  }
+  .fellowvillager01
+  {
+    position: relative;
+    top:9rem;
     left: -6rem;
   }
   .resultbutton{
