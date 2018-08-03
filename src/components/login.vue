@@ -23,13 +23,16 @@
       </label> -->
       <button class="loginbutton" name="login" v-on:click="sendInfo" v-loading.fullscreen.lock="fullscreen">查询</button>
     </div>
-    <div class="tip">
+    <div class="footer">
+      <div class="tip">
         <Card :bordered="false">
           <p slot="title">小贴士</p>
           <p v-html="tip"></p>
         </Card>
+      </div>
+      <p class="cr">©浙江工业大学精弘网络</p>
     </div>
-    <p class="cr">©浙江工业大学精弘网络</p>
+
     <div class="loading" v-if="loading">
       <Spin fix></Spin>
     </div>
@@ -113,81 +116,51 @@
 </script>
 
 <style scoped>
-html{
-  font-size:16px;
-  font-family: 等线;
-}
 .content{
-  position: absolute;
-  padding: 0;
+  box-sizing: border-box;
+  padding: 1px;
   margin: 0;
-  height: 83.3125rem;
-  width: 46.875rem;
+  height: 100%;
+  width: 100%;
   background-image: linear-gradient(120deg, #5694dc 0%, #c2e9fb 90%);
 }
 .logo1{
-  position: relative;
-  top: 9rem;
   width:24%;
   height:24%;
 }
-.info-item{
-  position: absolute;
-  top: 15rem;
-  /*width: 20rem;*/
-  left: 5.75rem;
+.logo{
+  margin-top: 9rem;
 }
-/*.label{
-  position: absolute;
-  color: white;
-
-  left: 7rem;
+.info-item input{
+  line-height: 1; box-sizing: border-box;
+  width: 100%;
+  background-color: transparent;
+  border: 0;
+  border-bottom: 2px #ececec solid;
+  transition: .25s ease border;
 }
-.namelabel {
-  top: 1rem;
+.info-item input:focus-within{
+  border-bottom: 2px white solid;
 }
-.passlabel {
-  top: 5rem;
-}*/
+.info-item input::-webkit-input-placeholder{
+  color: #ececec;
+  font-size: 2.25rem;
+}
 .inputtext{
   color: white;
-  height: 5.375rem;
   font-size: 2.25rem;
   outline:none;
-  padding-left: 1.125rem;
-  /*caret-color: rgba(255, 255, 255, 100);*/
+  padding:0 0 .7rem 1.125rem;
 }
-.item1{
-  top: 30.625rem;
+.info-item+.info-item{
+
+  margin-top: 2.5rem;
 }
-.item2{
-  top: 40rem;
-}
-#name{
-  position: absolute;
-  BACKGROUND-COLOR: transparent;
-  border-left: 0 white solid;
-  border-right: 0 white solid;
-  border-top: 0 white solid;
-  border-bottom: 0.125rem white solid;
-  width: 35.375rem;
-}
-#name::-webkit-input-placeholder{
-  color: white;
-  font-size: 2.25rem;
-}
-#pass{
-  position: absolute;
-  BACKGROUND-COLOR: transparent;
-  border-left: 0 white solid;
-  border-right: 0 white solid;
-  border-top: 0 white solid;
-  border-bottom: 0.125rem white solid;
-  width: 35.375rem;
-}
-#pass::-webkit-input-placeholder{
-  color: white;
-  font-size: 2.25rem;
+.form{
+  margin-top: 10rem;
+  box-sizing:border-box;
+  width: 100%;
+  padding: 0 5rem;
 }
 .select{
   position: absolute;
@@ -207,24 +180,33 @@ checkbox.radioInput,.radio:checked + checkbox.radioInput:after{border-radius:0}
 .demo--radio:checked + .radioInput{border:2px solid #00A1E9;}
 */
 .loginbutton{
-  position: absolute;
-  left: 29.375rem;
-  top: 54.25rem;
-  width: 11.75rem;
-  height: 4.125rem;
-  border: 0.125rem white solid;
+  width: 100%;
+  padding: 0.5rem ;
+  /*height: 5rem;*/
+  margin-top: 2.5rem;
+  height: 5rem;
+  border: 2px white solid;
   background: rgba(255, 255, 255, 0);
   color: white;
   font-size: 2rem;
   font-style: normal;
 }
-.cr{
+.footer{
   position: absolute;
-  left: 23.4375rem;
-  top: 77.375rem;
-  bottom: 0;
+  width: 100%;
+  left: 0;
+  /*left: 23.4375rem;*/
+  bottom: 3rem;
+}
+.tip{
+  font-size: 2rem;
+}
+.cr{
+  text-align: right;
+  padding-right: 3rem;
   color: #6585be;
   font-size: 1.75rem;
+  margin: 0;
 }
 /*
 .loading {

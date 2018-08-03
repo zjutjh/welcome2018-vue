@@ -5,18 +5,20 @@
     </div>
     <div class="resultpage">
       <div class="schoollogo">
-        <img class="logo2" src="../../UI/校徽.png">
+        <img class="logo-background" src="../../UI/校徽.png">
       </div>
       <div class="text">
-        <div class="name01">姓名：<span>{{ data.name}}</span><br/></div>
-        <div class="number01">学号：{{ }}<br/></div>
-        <div class="class01">班级：<span>{{ }}</span><br/></div>
-        <div class="hteacher01">班主任：<span>{{ }}</span><br/></div>
-        <div class="fellowvillager01">家乡群：<span>{{ }}</span><br/></div>
+        <p class="text-item"><span class="label-item">姓名：</span>{{ data.name}}</p>
+        <p class="text-item"><span class="label-item">学号：</span>{{ data.name}}</p>
+        <p class="text-item"><span class="label-item">班主任：</span>{{ data.name}}</p>
+        <p class="text-item"><span class="label-item">家乡群：</span>{{ data.name}}</p>
       </div>
     </div>
     <button class="resultbutton" name="result1" v-on:click="inToresult2" v-loading.fullscreen.lock="fullscreen">寝室信息</button>
-    <p class="cr">©浙江工业大学精弘网络</p>
+    <div class="footer">
+      <p class="cr">©浙江工业大学精弘网络</p>
+    </div>
+
   </div>
 
 </template>
@@ -34,7 +36,7 @@
       },
       data() {
         return {
-          data: {},
+          data: {name:'test'},
           loading: false
         }
       },
@@ -63,36 +65,39 @@
 </script>
 
 <style scoped>
-  html{
-    font-size:16px;
-    font-family: 等线;
-  }
   .content{
-    position: absolute;
-    padding: 0;
+    /*position: absolute;*/
+    box-sizing: border-box;
+    padding: 1px;
     margin: 0;
-    height: 83.3125rem;
-    width: 46.875rem;
+    width: 100%;
+    height: 100%;
+    /*height: 83.3125rem;*/
+    /*width: 46.875rem;*/
     background-image: linear-gradient(120deg, #5694dc 0%, #c2e9fb 90%);
   }
+  .logo{
+    margin-top: 9rem;
+  }
   .logo1{
-    position: relative;
-    top: 9rem;
+    /*position: relative;*/
+    /*top: 9rem;*/
     width:24%;
     height:24%;
   }
   .resultpage{
+    margin-top: 10rem;
     position: relative;
-    top:15rem;
+    /*top:15rem;*/
     margin-left: auto;
     margin-right: auto;
     height: 30%;
     width: 80%;
     background-color:rgba(255,255,255,0.5);
     border-radius:1.5rem;
-    box-shadow: 0.25rem 0.25rem 1rem #888888;
+    /*box-shadow: 0.25rem 0.25rem 1rem #888888;*/
   }
-  .logo2{
+  .logo-background{
     /*margin-right: auto;
     margin-left: auto;
     height: 24rem;*/
@@ -107,43 +112,26 @@
     opacity: 0.1;
   }
   .text{
+    text-align: left;
+    padding: 2rem 0;
     position: relative;
-    top: 0;
-    left: 0;
     font-size:2.1rem;
     line-height: 3rem;
     color: rgb(19,63,106);
   }
-  .name01{
-    position: relative;
-    top:5rem;
-    left: -7rem;
+  .text .label-item{
+    display: inline-block;
+    width: 12rem;
+    text-align: right;
   }
-  .number01{
-    position: relative;
-    top:6rem;
-    left: -7rem;
-  }
-  .class01{
-    position: relative;
-    top:7rem;
-    left: -7rem;
-  }
-  .hteacher01{
-    position: relative;
-    top:8rem;
-    left: -6rem;
-  }
-  .fellowvillager01
-  {
-    position: relative;
-    top:9rem;
-    left: -6rem;
+  .text-item{
+
   }
   .resultbutton{
-    position: absolute;
-    left: 29.375rem;
-    top: 56rem;
+    margin-top: 5rem;
+    /*position: absolute;*/
+    /*left: 29.375rem;*/
+    /*top: 56rem;*/
     width: 11.75rem;
     height: 4.125rem;
     border: 0.125rem white solid;
@@ -152,12 +140,21 @@
     font-size: 2rem;
     font-style: normal;
   }
-  .cr{
+  .footer{
     position: absolute;
-    left: 23.4375rem;
-    top: 77.375rem;
-    bottom: 0;
+    width: 100%;
+    left: 0;
+    /*left: 23.4375rem;*/
+    bottom: 3rem;
+  }
+  .tip{
+    font-size: 2rem;
+  }
+  .cr{
+    text-align: right;
+    padding-right: 3rem;
     color: #6585be;
     font-size: 1.75rem;
+    margin: 0;
   }
 </style>

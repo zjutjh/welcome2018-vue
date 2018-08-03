@@ -24,16 +24,14 @@
 </script>
 
 <style scoped>
-  html{
-    font-size:16px;
-    font-family: 等线;
-  }
+
   .content{
-    position: absolute;
-    padding: 0;
-    margin: 0;
-    height: 83.3125rem;
-    width: 46.875rem;
+    width: 100%;
+    height: 100%;
+    /*padding: 0;*/
+    /*margin: 0;*/
+    /*height: 83.3125rem;*/
+    /*width: 46.875rem;*/
     background-image: linear-gradient(120deg, #5694dc 0%, #c2e9fb 90%);
   }
   .logo1{

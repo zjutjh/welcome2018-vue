@@ -5,7 +5,15 @@ import App from './App'
 import router from './router'
 
 Vue.config.productionTip = false
-
+function setFont(){
+  var baseWidth = 750; // 设计稿宽度
+  // var baseHeight = 1232; // 设计稿高度
+  var htmlFont = 16; // 预设的根元素html的font-size值
+  var scale = window.innerWidth/baseWidth;
+  document.getElementsByTagName('html')[0].style.fontSize = scale * htmlFont + 'px';
+}
+window.addEventListener('resize',setFont,false)
+setFont();
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
