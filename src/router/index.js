@@ -7,6 +7,7 @@ import Router from 'vue-router'
 import login from '@/components/login.vue'      //登录页
 import result1 from '@/components/result1.vue'  //学号班级
 import result2 from '@/components/result2.vue'  //寝室
+import result3 from '@/components/result3.vue'  //班级同学
 
 Vue.use(Router)
 
@@ -26,7 +27,9 @@ export default new Router({
     {
       path: '/',
       name: 'login',
-      component: login
+      component: result3
+
+
     },
     {
       path: '/result1',
@@ -37,6 +40,11 @@ export default new Router({
       path: '/result2',
       name: 'result2',
       component: result2
+    },
+    {
+      path: '/result3',
+      name: 'result3',
+      component: result3
     }
   ]
 })

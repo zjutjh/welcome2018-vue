@@ -8,10 +8,11 @@
         <img class="logo-background" src="../../UI/校徽.png">
       </div>
       <div class="text">
-        <p class="text-item"><span class="label-item">姓名：</span>{{ data.name}}</p>
-        <p class="text-item"><span class="label-item">学号：</span>{{ data.name}}</p>
-        <p class="text-item"><span class="label-item">班主任：</span>{{ data.name}}</p>
-        <p class="text-item"><span class="label-item">家乡群：</span>{{ data.name}}</p>
+        <p class="text-item"><span class="label-item">姓名：</span>{{ data.student.name}}</p>
+        <p class="text-item"><span class="label-item">学号：</span>{{ data.student.id_card}}</p>
+        <p class="text-item"><span class="label-item">班级：</span>{{ data.student.class}}</p>
+        <p class="text-item"><span class="label-item">班主任：</span>{{ data.student.head_class}}</p>
+        <p class="text-item"><span class="label-item">家乡群：</span>{{ data.qq_groups.qq_group}}</p>
       </div>
     </div>
     <button class="resultbutton" name="result1" v-on:click="inToresult2" v-loading.fullscreen.lock="fullscreen">寝室信息</button>

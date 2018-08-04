@@ -9,8 +9,8 @@
         <input class="inputtext" type="text" name="name" id="name" placeholder="姓名" v-model="name">
       </div>
       <div class="info-item item2">
-        <!--<label class="label passlabel">身份证号</label>-->
-        <input class="inputtext" type="text" name="pass" id="pass" placeholder="身份证号" v-model="pass">
+        <!--<label class="label idlabel">身份证号</label>-->
+        <input class="inputtext" type="text" name="id" id="id" placeholder="身份证号" v-model="id">
       </div>
     <!-- <label class="select">
         <label>查</label>
@@ -64,7 +64,7 @@
       data: function() {
         return {
           name: '',
-          pass: '',
+          id: '',
           fullscreen: false,
           tip: '',
           loading: false
@@ -73,16 +73,16 @@
       methods: {
         sendInfo () {
           this.loading = true;
-          if(this.name == ''|| this.pass == '' || (!this.ispass())) {
+          if(this.name == ''|| this.id == '' || (!this.isId())) {
             this.loading = false;
             this.error('输入错误，重新输入。');
             return;
           }
           let _this = this;
-          this.$http.post('http://localhost/new-stu/stu-api/test.php',{name: _this.name, pass: _this.pass},
+          this.$http.post('要填一个输出的地址这里！',{name: _this.name, id: _this.id},
             {emulateJSON: true}
           ).then(function (res){
-            if(res.body.errcode == '404'){
+            if(res.body.errcode == '201'){
               _this.error('信息错误，请重新输入。');
               return ;
             }
@@ -96,7 +96,7 @@
             _this.loading = false;
             _this.error('请求错误，请重新尝试。');
             _this.name = '';
-            _this.pass = '';
+            _this.id = '';
             return;
           });
         },
@@ -106,9 +106,9 @@
             desc: nodesc ? nodesc : ''
           });
         },
-        ispass(){
+        isId(){
           let reg = /^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}([0-9]|X|x)$/;
-          return reg.test(this.pass);
+          return reg.test(this.id);
         }
       }
     }
