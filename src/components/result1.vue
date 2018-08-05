@@ -16,6 +16,7 @@
       </div>
     </div>
     <button class="resultbutton" name="result1" v-on:click="inToresult2" v-loading.fullscreen.lock="fullscreen">寝室信息</button>
+    <button class="resultbutton02" name="result102" v-on:click="inToresult3" v-loading.fullscreen.lock="fullscreen">班级信息</button>
     <div class="footer">
       <p class="cr">©浙江工业大学精弘网络</p>
     </div>
@@ -42,8 +43,10 @@
         }
       },
       methods:{
+
         inToresult2()
         {
+
           alert("未到查询时间！")
           /*
           this.loading = true;
@@ -58,6 +61,21 @@
               }
             })
           */
+        }
+        inToresult3 () {
+            this.loading = true;
+            let _this = this;
+            this.$http.post('/api/main/{id}/classmates',{id:data.student.id_card},
+              {emulateJSON: true}
+            ).then(function (res){
+              router.push({
+                name: 'result3',
+                params: {
+                  data: this.data.classmates
+                }
+              })
+            }, function(){
+            });
         }
 
 
@@ -130,6 +148,19 @@
   }
   .resultbutton{
     margin-top: 5rem;
+    /*position: absolute;*/
+    /*left: 29.375rem;*/
+    /*top: 56rem;*/
+    width: 11.75rem;
+    height: 4.125rem;
+    border: 0.125rem white solid;
+    background: rgba(255, 255, 255, 0);
+    color: white;
+    font-size: 2rem;
+    font-style: normal;
+  }
+  .resultbutton02{
+    margin-top: 7rem;
     /*position: absolute;*/
     /*left: 29.375rem;*/
     /*top: 56rem;*/

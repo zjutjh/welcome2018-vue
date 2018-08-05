@@ -7,7 +7,23 @@
      <!-- <div class="schoollogo">
         <img class="logo2" src="../../UI/校徽.png">
       </div> -->
-      <div class="text">
+      <div class="text" id="text">
+        <table>
+          <thead>
+          <tr>
+            <th>姓名</th>
+            <th>省份</th>
+            <th>班级</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr v-for="item in classmates" >
+            <td>{{ item.name }}</td>
+            <td>{{ item.hometown }}</td>
+            <td>{{ item.class }}</td>
+          </tr>
+          </tbody>
+        </table>
 
       </div>
     </div>
@@ -17,8 +33,29 @@
 
 <script>
     export default {
-        name: "result3"
+        name: "result3",
+        created() {
+        this.loading = true;
+        this.data = this.$route.params.data.body.data;
+        console.log(this.data);
+        this.loading = false;
+      },
+        data() {
+        return {
+          data: {},
+          loading: false
+        }
+        var _text = new Vue({
+            el: '#text',
+            data: {
+              classmates: [
+
+              ]
+            }
+          });
+      },
     }
+
 </script>
 
 <style scoped>
