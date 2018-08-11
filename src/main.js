@@ -3,8 +3,10 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import vr from 'vue-resource'
 
-Vue.config.productionTip = false
+Vue.use(vr);
+Vue.config.productionTip = false;
 function setFont(){
   var baseWidth = 750; // 设计稿宽度
   // var baseHeight = 1232; // 设计稿高度

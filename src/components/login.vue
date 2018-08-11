@@ -79,7 +79,7 @@
             return;
           }
           let _this = this;
-          this.$http.post('要填一个输出的地址这里！',{name: _this.name, id: _this.id},
+          this.$http.post('/api/main/sid',{name: _this.name, id: _this.id},
             {emulateJSON: true}
           ).then(function (res){
             if(res.body.errcode == '201'){
@@ -180,11 +180,12 @@ checkbox.radioInput,.radio:checked + checkbox.radioInput:after{border-radius:0}
 .demo--radio:checked + .radioInput{border:2px solid #00A1E9;}
 */
 .loginbutton{
-  width: 100%;
+  width: 40%;
   padding: 0.5rem ;
   /*height: 5rem;*/
-  margin-top: 2.5rem;
-  height: 5rem;
+  margin-top: 6rem;
+  float: right;
+  height: 4rem;
   border: 2px white solid;
   background: rgba(255, 255, 255, 0);
   color: white;
