@@ -183,19 +183,19 @@
     font-style: normal;
   }
   .footer{
-    position: absolute;
+
     width: 100%;
-    left: 0;
-    /*left: 23.4375rem;*/
-    bottom: 3rem;
+
   }
   .tip{
     font-size: 2rem;
+    border-radius: 1rem;
+    background: rgba(255,255,255,.6);
+    margin: 0 5rem;
   }
   .cr{
     text-align: center;
     color: #6585be;
     font-size: 1.75rem;
-    margin: 0;
   }
 </style>

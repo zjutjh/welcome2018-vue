@@ -10,9 +10,6 @@
       <div class="text">
         <p class="text-item"><span class="label-item">姓名：</span>{{ data.student.name}}</p>
         <p class="text-item"><span class="label-item">学号：</span>{{ data.student.student_id}}</p>
-
-
-
       </div>
     </div>
     <div class="footer">
@@ -175,11 +172,15 @@
   }
   .tip{
     font-size: 2rem;
+    border-radius: 1rem;
+    background: rgba(255,255,255,.6);
+    margin: 0 5rem;
+    padding: 1rem;
   }
   .cr{
     text-align: center;
     color: #6585be;
     font-size: 1.75rem;
-    margin: 0;
+    margin: 2rem;
   }
 </style>

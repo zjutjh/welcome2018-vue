@@ -181,21 +181,23 @@ checkbox.radioInput,.radio:checked + checkbox.radioInput:after{border-radius:0}
   font-style: normal;
 }
 .footer{
-  position: absolute;
   width: 100%;
-  left: 0;
-  /*left: 23.4375rem;*/
-  bottom: 3rem;
+  margin-top: 2rem;
+
 }
 .tip{
   font-size: 2rem;
+  border-radius: 1rem;
+  background: rgba(255,255,255,.6);
+  margin: 0 5rem;
+  padding: 1rem;
 }
 .cr{
   text-align: right;
   padding-right: 3rem;
   color: #6585be;
   font-size: 1.75rem;
-  margin: 0;
+  margin: 2rem;
 }
 /*
 .loading {
