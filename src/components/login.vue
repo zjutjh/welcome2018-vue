@@ -103,8 +103,12 @@
 </script>
 
 <style scoped>
-.content{
+* {
   box-sizing: border-box;
+}
+.content{
+  display: flex;
+  flex-direction: column;
   padding: 1px;
   margin: 0;
   height: 100%;
@@ -144,6 +148,7 @@
   margin-top: 2.5rem;
 }
 .form{
+  flex: 1;
   margin-top: 10rem;
   box-sizing:border-box;
   width: 100%;
