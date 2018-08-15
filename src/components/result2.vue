@@ -156,7 +156,7 @@
   .text{
     display: flex;
     flex-direction: column;
-    padding: 1.2rem 0;
+    padding: 1.2rem 2rem;
     text-align: left;
     position: relative;
     font-size: 1.2rem;
@@ -165,7 +165,7 @@
   }
   .text .label-item{
     display: inline-block;
-    padding: 0 5rem;
+    margin-right: 1rem;
     text-align: right;
   }
   .text-item{

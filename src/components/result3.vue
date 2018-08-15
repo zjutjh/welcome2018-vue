@@ -71,7 +71,7 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 100%;
+    min-height: 100%;
     /*padding: 0;*/
     /*margin: 0;*/
     /*height: 83.3125rem;*/
@@ -125,6 +125,7 @@
   table {
     width: 100%;
     height: 100%;
+    font-size: 1.2rem;
   }
   .cr{
     text-align: right;
