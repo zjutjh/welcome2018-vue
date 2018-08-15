@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <!--<img src="./assets/logo.png">-->
-    <router-view/>
+    <keep-alive>
+      <router-view></router-view>
+    </keep-alive>
   </div>
 </template>
 
@@ -12,6 +14,10 @@ export default {
 </script>
 
 <style>
+  html, body {
+    width: 100%;
+    height: 100%;
+  }
   body{
     position: absolute;
     left: 0;

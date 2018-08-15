@@ -28,31 +28,33 @@
       </div>
     </div>
     <p class="cr">©浙江工业大学精弘网络</p>
+    <loading :loading="loading"></loading>
   </div>
 </template>
 
 <script>
+    import Loading from './loading'
     export default {
         name: "result3",
-        created() {
+        mounted: async function(){
         this.loading = true;
-        this.data = this.$route.params.data.body.data;
-        console.log(this.data);
+        await this.$http.post('/api/main/detail/classmate', {id_card: this.$route.params.iid}).then(res => {
+          if (res.body.code < 0) {
+            alert(res.body.error)
+            return
+          }
+          this.classmates = res.body.data.classmates
+        })
         this.loading = false;
       },
+      components: {Loading},
         data() {
         return {
           data: {},
-          loading: false
+          loading: false,
+          classmates: [
+          ]
         }
-        var _text = new Vue({
-            el: '#text',
-            data: {
-              classmates: [
-
-              ]
-            }
-          });
       },
     }
 
@@ -80,11 +82,12 @@
     top:15rem;
     margin-left: auto;
     margin-right: auto;
-    height: 30%;
+    height: 50%;
     width: 80%;
     background-color:rgba(255,255,255,0.5);
     border-radius:1.5rem;
     box-shadow: 0.25rem 0.25rem 1rem #888888;
+    overflow: auto;
   }
   /*.logo2{
     //margin-right: auto;
@@ -101,6 +104,8 @@
     opacity: 0.1;
   } */
   .text{
+    width: 100%;
+    height: 100%;
     position: relative;
     top: 0;
     left: 0;
@@ -108,10 +113,14 @@
     line-height: 3rem;
     color: rgb(19,63,106);
   }
+  table {
+    width: 100%;
+    height: 100%;
+  }
   .cr{
     position: absolute;
-    left: 23.4375rem;
-    top: 77.375rem;
+    left: 50%;
+    transform: translateX(-50%);
     bottom: 0;
     color: #6585be;
     font-size: 1.75rem;

@@ -33,17 +33,10 @@
       <p class="cr">©浙江工业大学精弘网络</p>
     </div>
 
-    <div class="loading" v-if="loading">
-      <Spin fix></Spin>
-    </div>
-    <!--
-    <div class="loading" v-if="loading">
-      <div class="double">
-        <div class="double-bounce1"></div>
-        <div class="double-bounce2"></div>
-      </div>
-    </div>
-    -->
+    <!--<div class="loading" v-if="loading">-->
+      <!--<Spin fix></Spin>-->
+
+    <loading :loading="loading"></loading>
   </div>
 
 </template>
@@ -51,21 +44,21 @@
 <script>
   //!function(a,b,c){function q(){var d=Math.min((o?e[h]().width:f.innerWidth)/(a/b),c);d!=p&&(k.innerHTML="html{font-size:"+d+"px!important;"+n+"}",p=d)}function r(){clearTimeout(l),l=setTimeout(q,500)}var l,d=document,e=d.documentElement,f=window,g="addEventListener",h="getBoundingClientRect",i="pageshow",j=d.head||d.getElementsByTagName("HEAD")[0],k=d.createElement("STYLE"),m="text-size-adjust:100%;",n="-webkit-"+m+"-moz-"+m+"-ms-"+m+"-o-"+m+m,o=h in e,p=null;a=a||320,b=b||16,c=c||32,j.appendChild(k),d[g]("DOMContentLoaded",q,!1),"on"+i in f?f[g](i,function(a){a.persisted&&r()},!1):f[g]("load",r,!1),f[g]("resize",r,!1),q()}(320,10,100);
 
-    import router from '../router/index.js'
+    import Loading from './loading'
 
     export default {
       name: "login",
+      components: {Loading},
       mounted(){
         let _this = this;
-        this.$http.post('tip地址到时候填',{emulateJSON: true}).then(function(res) {
-          _this.tip = res.body.data.content;
+        this.$http.post('/api/main/tips').then(function(res) {
+          _this.tip = res.body.data.tip.content;
         });
       },
       data: function() {
         return {
           name: '',
           id: '',
-          fullscreen: false,
           tip: '',
           loading: false
         }
@@ -75,18 +68,18 @@
           this.loading = true;
           if(this.name == ''|| this.id == '' || (!this.isId())) {
             this.loading = false;
-            this.error('输入错误，重新输入。');
+            alert('输入错误，重新输入。');
             return;
           }
           let _this = this;
-          this.$http.post('/api/main/sid',{name: _this.name, id: _this.id},
-            {emulateJSON: true}
+          this.$http.post('/api/main/sid',{name: _this.name, id: _this.id}
           ).then(function (res){
-            if(res.body.errcode == '201'){
-              _this.error('信息错误，请重新输入。');
-              return ;
+            if(res.body.code < 0){
+              alert(res.body.error);
+              _this.loading = false
+              return
             }
-            router.push({
+            this.$router.push({
               name: 'result1',
               params: {
                 data: res
@@ -94,16 +87,10 @@
             })
           }, function(){
             _this.loading = false;
-            _this.error('请求错误，请重新尝试。');
+            alert('请求错误，请重新尝试。');
             _this.name = '';
             _this.id = '';
             return;
-          });
-        },
-        error (nodesc) {
-          this.$Notice.error({
-            title: '错误',
-            desc: nodesc ? nodesc : ''
           });
         },
         isId(){
@@ -180,11 +167,12 @@ checkbox.radioInput,.radio:checked + checkbox.radioInput:after{border-radius:0}
 .demo--radio:checked + .radioInput{border:2px solid #00A1E9;}
 */
 .loginbutton{
+  margin: 0 auto;
   width: 40%;
   padding: 0.5rem ;
   /*height: 5rem;*/
   margin-top: 6rem;
-  float: right;
+  /*float: right;*/
   height: 4rem;
   border: 2px white solid;
   background: rgba(255, 255, 255, 0);

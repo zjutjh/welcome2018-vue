@@ -9,19 +9,25 @@
       </div>
       <div class="text">
         <p class="text-item"><span class="label-item">姓名：</span>{{ data.student.name}}</p>
-        <p class="text-item"><span class="label-item">学号：</span>{{ data.student.id_card}}</p>
-        <!--
-        <p class="text-item"><span class="label-item">班级：</span>{{ data.student.class}}</p>
-        <p class="text-item"><span class="label-item">班主任：</span>{{ data.student.head_class}}</p>
-        <p class="text-item"><span class="label-item">家乡群：</span>{{ data.qq_groups.qq_group}}</p>
-        -->
+        <p class="text-item"><span class="label-item">学号：</span>{{ data.student.student_id}}</p>
+
+
+
       </div>
     </div>
-    <button class="resultbutton" name="result1" v-on:click="inToresult2" v-loading.fullscreen.lock="fullscreen">寝室信息</button>
-    <button class="resultbutton02" name="result102" v-on:click="inToresult3" v-loading.fullscreen.lock="fullscreen">班级信息</button>
+    <div class="footer">
+      <div class="tip">
+        <Card :bordered="false">
+          <p slot="title">小贴士</p>
+          <p v-html="tip"></p>
+        </Card>
+      </div>
+      <p class="cr">©浙江工业大学精弘网络</p>
+    </div>
     <div class="footer">
       <p class="cr">©浙江工业大学精弘网络</p>
     </div>
+    <loading :loading="loading"></loading>
 
   </div>
 
@@ -29,44 +35,32 @@
 
 <script>
     import router from '../router/index.js'
+    import Loading from './loading'
 
     export default {
       name: "result1",
+      components: {Loading},
       created() {
         this.loading = true;
+        let _this = this;
+        this.$http.post('/api/main/tips').then(function(res) {
+          _this.tip = res.body.data.tip.content;
+        });
         this.data = this.$route.params.data.body.data;
-        console.log(this.data);
         this.loading = false;
       },
       data() {
         return {
-          data: {name:'test'},
-          loading: false
+          data: {name:'', id_card: ''},
+          loading: false,
+          tip: ''
         }
       },
       methods:{
-        inToresult2()
-        {
-          alert("未到查询时间！")
-          /*
-          this.loading = true;
-          let _this = this;
-          this.$http.post('http://localhost/new-stu/stu-api/test.php',{name: _this.name, pass: _this.pass},
-          {emulateJSON: true}
-          ).then(function (res){
-            router.push({
-              name: 'result2',
-              params: {
-                data: res
-              }
-            })
-          */
-        },
         inToresult3 () {
             this.loading = true;
             let _this = this;
-            this.$http.post('/api/main/{id}/classmates',{id:data.student.id_card},
-              {emulateJSON: true}
+            this.$http.post('/api/main/{id}/classmates',{id:data.student.id_card}
             ).then(function (res){
               router.push({
                 name: 'result3',
@@ -105,7 +99,7 @@
     height:24%;
   }
   .resultpage{
-    margin-top: 10rem;
+    margin-top: 3rem;
     position: relative;
     /*top:15rem;*/
     margin-left: auto;
@@ -160,7 +154,7 @@
     font-style: normal;
   }
   .resultbutton02{
-    margin-top: 7rem;
+    margin-top: 2rem;
     /*position: absolute;*/
     /*left: 29.375rem;*/
     /*top: 56rem;*/
@@ -183,8 +177,7 @@
     font-size: 2rem;
   }
   .cr{
-    text-align: right;
-    padding-right: 3rem;
+    text-align: center;
     color: #6585be;
     font-size: 1.75rem;
     margin: 0;
