@@ -3,28 +3,30 @@
     <div class="logo">
       <img class="logo1" src="../../UI/logo.png">
     </div>
-    <div class="resultpage">
-     <!-- <div class="schoollogo">
-        <img class="logo2" src="../../UI/校徽.png">
-      </div> -->
-      <div class="text" id="text">
-        <table>
-          <thead>
-          <tr>
-            <th>姓名</th>
-            <th>省份</th>
-            <th>班级</th>
-          </tr>
-          </thead>
-          <tbody>
-          <tr v-for="item in classmates" >
-            <td>{{ item.name }}</td>
-            <td>{{ item.hometown }}</td>
-            <td>{{ item.class }}</td>
-          </tr>
-          </tbody>
-        </table>
+    <div class="result">
+      <div class="resultpage">
+        <!-- <div class="schoollogo">
+           <img class="logo2" src="../../UI/校徽.png">
+         </div> -->
+        <div class="text" id="text">
+          <table>
+            <thead>
+            <tr>
+              <th>姓名</th>
+              <th>省份</th>
+              <th>班级</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr v-for="item in classmates" >
+              <td>{{ item.name }}</td>
+              <td>{{ item.hometown }}</td>
+              <td>{{ item.class }}</td>
+            </tr>
+            </tbody>
+          </table>
 
+        </div>
       </div>
     </div>
     <p class="cr">©浙江工业大学精弘网络</p>
@@ -61,8 +63,13 @@
 </script>
 
 <style scoped>
-
-  .content{
+  * {
+    box-sizing: border-box;
+    margin: 0;
+  }
+  #app>.content{
+    display: flex;
+    flex-direction: column;
     width: 100%;
     height: 100%;
     /*padding: 0;*/
@@ -72,16 +79,18 @@
     background-image: linear-gradient(120deg, #5694dc 0%, #c2e9fb 90%);
   }
   .logo1{
-    position: relative;
-    top: 9rem;
-    width:24%;
-    height:24%;
+    width: 6rem;
+    height: 6rem;
+  }
+  .logo{
+    margin-top: 6rem;
+  }
+  .result {
+    flex: 1;
   }
   .resultpage{
     position: relative;
-    top:15rem;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 2rem auto;
     height: 50%;
     width: 80%;
     background-color:rgba(255,255,255,0.5);
@@ -109,7 +118,7 @@
     position: relative;
     top: 0;
     left: 0;
-    font-size:2.1rem;
+    font-size: 1.4rem;
     line-height: 3rem;
     color: rgb(19,63,106);
   }
@@ -118,11 +127,10 @@
     height: 100%;
   }
   .cr{
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 0;
+    text-align: right;
+    padding-bottom: 2rem;
+    margin: 3rem 3rem 0;
     color: #6585be;
-    font-size: 1.75rem;
+    font-size: 1.2rem;
   }
 </style>

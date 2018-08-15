@@ -26,8 +26,8 @@
     <div class="footer">
       <div class="tip">
         <Card :bordered="false">
-          <p slot="title">小贴士</p>
-          <p v-html="tip"></p>
+          <p class="title" slot="title">小贴士</p>
+          <p class="content" v-html="tip"></p>
         </Card>
       </div>
       <p class="cr">©浙江工业大学精弘网络</p>
@@ -105,8 +105,9 @@
 <style scoped>
 * {
   box-sizing: border-box;
+  margin: 0;
 }
-.content{
+#app>.content{
   display: flex;
   flex-direction: column;
   padding: 1px;
@@ -116,18 +117,18 @@
   background-image: linear-gradient(120deg, #5694dc 0%, #c2e9fb 90%);
 }
 .logo1{
-  width:24%;
-  height:24%;
+  width: 6rem;
+  height: 6rem;
 }
 .logo{
-  margin-top: 9rem;
+  margin-top: 6rem;
 }
 .info-item input{
   line-height: 1; box-sizing: border-box;
   width: 100%;
   background-color: transparent;
   border: 0;
-  border-bottom: 2px #ececec solid;
+  border-bottom: 1px #ececec solid;
   transition: .25s ease border;
 }
 .info-item input:focus-within{
@@ -135,13 +136,13 @@
 }
 .info-item input::-webkit-input-placeholder{
   color: #ececec;
-  font-size: 2.25rem;
+  font-size: 1.4rem;
 }
 .inputtext{
   color: white;
-  font-size: 2.25rem;
+  font-size: 1.4rem;
   outline:none;
-  padding:0 0 .7rem 1.125rem;
+  padding:0 0 .7rem .8rem;
 }
 .info-item+.info-item{
 
@@ -149,7 +150,7 @@
 }
 .form{
   flex: 1;
-  margin-top: 10rem;
+  margin-top: 6rem;
   box-sizing:border-box;
   width: 100%;
   padding: 0 5rem;
@@ -159,7 +160,7 @@
   left: 7rem;
   top: 50.5625rem;
   color: white;
-  font-size: 1.875rem;
+  font-size: 1.2rem;
   margin:20px 20px 0 0;
   display:inline-block;
 
@@ -172,37 +173,47 @@ checkbox.radioInput,.radio:checked + checkbox.radioInput:after{border-radius:0}
 .demo--radio:checked + .radioInput{border:2px solid #00A1E9;}
 */
 .loginbutton{
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin: 0 auto;
   width: 40%;
   padding: 0.5rem ;
   /*height: 5rem;*/
-  margin-top: 6rem;
+  margin-top: 3rem;
   /*float: right;*/
-  height: 4rem;
-  border: 2px white solid;
+  height: 3rem;
+  border: 1px white solid;
   background: rgba(255, 255, 255, 0);
   color: white;
-  font-size: 2rem;
-  font-style: normal;
+  font-size: 1.4rem;
 }
 .footer{
   width: 100%;
-  margin-top: 2rem;
-
 }
 .tip{
-  font-size: 2rem;
-  border-radius: 1rem;
-  background: rgba(255,255,255,.6);
-  margin: 0 5rem;
+  text-align: left;
+  font-size: 1.2rem;
+  color: #6585be;
+  margin: 0 4rem;
   padding: 1rem;
+}
+.tip p {
+  margin: 0;
+}
+
+.tip .title {
+  margin-bottom: .4rem;
+}
+.tip .content {
+  text-indent: 1.2em;
 }
 .cr{
   text-align: right;
-  padding-right: 3rem;
+  padding-bottom: 2rem;
+  margin: 3rem 3rem 0;
   color: #6585be;
-  font-size: 1.75rem;
-  margin: 2rem;
+  font-size: 1.2rem;
 }
 /*
 .loading {
