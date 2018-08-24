@@ -11,10 +11,12 @@
         <div class="text">
           <p class="text-item"><span class="label-item">姓名：</span>{{ data.student.name}}</p>
           <p class="text-item"><span class="label-item">学号：</span>{{ data.student.id}}</p>
-          <p class="text-item"><span class="label-item">寝室：</span>{{ data.student.dormitory}}</p>
+          <p class="text-item"><span class="label-item">寝室楼：</span>{{ data.student.dormitory}}</p>
+          <p class="text-item"><span class="label-item">寝室号：</span>{{ data.student.room}}</p>
+          <p class="text-item"><span class="label-item">是否预定床上用品：</span>{{ data.student.order}}</p>
         </div>
       </div>
-      <button class="resultbutton02" name="result102" v-on:click="inToresult5" >班级信息</button>
+      <button class="resultbutton02" name="result102" v-on:click="inToresult5" >室友信息</button>
     </div>
     <div class="footer">
       <div class="tip">
@@ -28,7 +30,7 @@
     <div class="footer">
       <p class="cr">©浙江工业大学精弘网络</p>
     </div>
-    <loading :loading="loading"></loading>
+    <!--<loading :loading="loading"></loading>-->
 
   </div>
 
@@ -56,6 +58,7 @@
           name:'',
           id: '',
           dormitory: '',
+          room: '',
           student: {}
         },
         loading: false,
@@ -107,6 +110,7 @@
   .resultpage{
     margin-top: 3rem;
     position: relative;
+    line-height: 0.5rem;
     /*top:15rem;*/
     margin-left: auto;
     margin-right: auto;
@@ -162,12 +166,12 @@
     /*position: absolute;*/
     /*left: 29.375rem;*/
     /*top: 56rem;*/
-    width: 11.75rem;
-    height: 4.125rem;
+    width: 9.75rem;
+    height: 3.125rem;
     border: 0.125rem white solid;
     background: rgba(255, 255, 255, 0);
     color: white;
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-style: normal;
   }
   .footer{

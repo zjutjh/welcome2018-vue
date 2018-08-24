@@ -13,15 +13,15 @@
             <thead>
             <tr>
               <th>姓名</th>
-              <th>省份</th>
               <th>班级</th>
+              <th>床号</th>
             </tr>
             </thead>
             <tbody>
-            <tr v-for="item in classmates" >
+            <tr v-for="item in roommates" >
               <td>{{ item.name }}</td>
-              <td>{{ item.hometown }}</td>
               <td>{{ item.class }}</td>
+              <td>{{ item.num }}</td>
             </tr>
             </tbody>
           </table>
@@ -30,7 +30,7 @@
       </div>
     </div>
     <p class="cr">©浙江工业大学精弘网络</p>
-    <loading :loading="loading"></loading>
+    <!--<loading :loading="loading"></loading>-->
   </div>
 </template>
 
@@ -56,7 +56,7 @@
       return {
         data: {},
         loading: false,
-        classmates: [
+        roommates: [
         ]
       }
     },

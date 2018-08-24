@@ -50,7 +50,7 @@ export default new Router({
     {
       path: '/',
       name: 'login2',
-      component: login2
+      component: result5
     },
     {
       path: '/result4',
