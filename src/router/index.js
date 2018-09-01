@@ -62,6 +62,5 @@ export default new Router({
       name: 'result5',
       component: result5
     },
-
   ]
 })
