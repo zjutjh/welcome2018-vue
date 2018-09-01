@@ -10,23 +10,23 @@
         </div>
         <div class="text">
           <p class="text-item"><span class="label-item">姓名：</span>{{ data.student.name}}</p>
-          <p class="text-item"><span class="label-item">学号：</span>{{ data.student.id}}</p>
-          <p class="text-item"><span class="label-item">寝室楼：</span>{{ data.student.dormitory}}</p>
-          <p class="text-item"><span class="label-item">寝室号：</span>{{ data.student.room}}</p>
-          <p class="text-item"><span class="label-item">是否预定床上用品：</span>{{ data.student.order}}</p>
+          <p class="text-item"><span class="label-item">学号：</span>{{ data.student.student_id}}</p>
+          <p class="text-item"><span class="label-item">寝室楼：</span>{{ data.student.location}}</p>
+          <p class="text-item"><span class="label-item">寝室号：</span>{{ data.student.number}}</p>
+          <p class="text-item"><span class="label-item">是否预定床上用品：</span>{{ data.student.bed_order}}</p>
         </div>
       </div>
       <button class="resultbutton02" name="result102" v-on:click="inToresult5" >室友信息</button>
     </div>
-    <div class="footer">
-      <div class="tip">
-        <Card :bordered="false">
-          <p slot="title">小贴士</p>
-          <p v-html="tip"></p>
-        </Card>
-      </div>
-      <p class="cr">©浙江工业大学精弘网络</p>
-    </div>
+    <!--<div class="footer">-->
+      <!--<div class="tip">-->
+        <!--<Card :bordered="false">-->
+          <!--<p slot="title">小贴士</p>-->
+          <!--<p v-html="tip"></p>-->
+        <!--</Card>-->
+      <!--</div>-->
+      <!--<p class="cr">©浙江工业大学精弘网络</p>-->
+    <!--</div>-->
     <div class="footer">
       <p class="cr">©浙江工业大学精弘网络</p>
     </div>
@@ -45,10 +45,10 @@
     components: {Loading},
     created() {
       this.loading = true;
-      let _this = this;
-      this.$http.post('/api/main/tips').then(function(res) {
-        _this.tip = res.body.data.tip.content;
-      });
+      // let _this = this;
+      // this.$http.post('/api/main/tips').then(function(res) {
+      //   _this.tip = res.body.data.tip.content;
+      // });
       this.data = this.$route.params.data.body.data;
       this.loading = false;
     },
@@ -56,9 +56,10 @@
       return {
         data: {
           name:'',
-          id: '',
-          dormitory: '',
-          room: '',
+          student_id: '',
+          location: '',
+          number: '',
+          bed_order: '',
           student: {}
         },
         loading: false,
@@ -71,7 +72,7 @@
         this.$router.push({
           name: 'result5',
           params: {
-            iid: this.data.student.id
+            iid: this.data.student_id
           }
         })
       },

@@ -21,7 +21,7 @@
             <tr v-for="item in roommates" >
               <td>{{ item.name }}</td>
               <td>{{ item.class }}</td>
-              <td>{{ item.num }}</td>
+              <td>{{ item.bed }}</td>
             </tr>
             </tbody>
           </table>
@@ -42,10 +42,10 @@
     name: "result5",
     mounted: async function(){
       this.loading = true;
-      await this.$http.post('/api/main/detail/roommate', {id_card: this.$route.params.iid}).then(res => {
+      await this.$http.post('/api/main/dormitory/roommate', {id: this.$route.params.iid}).then(res => {
         if (res.body.code < 0) {
           alert(res.body.error)
-          return
+          return;
         }
         this.roommates = res.body.data.roommates
       })

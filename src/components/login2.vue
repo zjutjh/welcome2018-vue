@@ -4,9 +4,9 @@
       <img class="logo1" src="../../UI/logo.png">
     </div>
     <div class="form">
-      <div class="info-item item1">
-        <input class="inputtext" type="text" name="name" id="name" placeholder="姓名" v-model="name">
-      </div>
+      <!--<div class="info-item item1">-->
+        <!--<input class="inputtext" type="text" name="name" id="name" placeholder="姓名" v-model="name">-->
+      <!--</div>-->
       <div class="info-item item2">
         <input class="inputtext" type="text" name="id" id="id" placeholder="学号" v-model="id">
       </div>
@@ -47,7 +47,6 @@
     },
     data: function() {
       return {
-        name: '',
         id: '',
         tip: '',
         loading: false
@@ -56,18 +55,18 @@
     methods: {
       sendInfo () {
         this.loading = true;
-        if(this.name == ''|| this.id == '' ) {
+        if( this.id == '' ) {
           this.loading = false;
           alert('输入错误，重新输入。');
           return;
         }
         let _this = this;
-        this.$http.post('/api/main/sid',{name: _this.name, id: _this.id}
+        this.$http.post('/api/main/dormitory',{ id: _this.id }
         ).then(function (res){
           if(res.body.code < 0){
             alert(res.body.error);
-            _this.loading = false
-            return
+            _this.loading = false;
+            return;
           }
           this.$router.push({
             name: 'result4',
@@ -78,7 +77,6 @@
         }, function(){
           _this.loading = false;
           alert('请求错误，请重新尝试。');
-          _this.name = '';
           _this.id = '';
           return;
         });
@@ -140,7 +138,7 @@
   }
   .form{
     flex: 1;
-    margin-top: 6rem;
+    margin-top: 8rem;
     box-sizing:border-box;
     width: 100%;
     padding: 0 5rem;
@@ -170,7 +168,7 @@
     width: 40%;
     padding: 0.5rem ;
     /*height: 5rem;*/
-    margin-top: 3rem;
+    margin-top: 5rem;
     /*float: right;*/
     height: 3rem;
     border: 1px white solid;
