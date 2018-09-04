@@ -37,7 +37,7 @@
   import Loading from './loading'
 
   export default {
-    name: "login",
+    name: "login2",
     components: {Loading},
     mounted(){
       let _this = this;
