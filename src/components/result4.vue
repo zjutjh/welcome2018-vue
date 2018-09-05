@@ -13,8 +13,9 @@
           <p class="text-item"><span class="label-item">学号：</span>{{ data.student.student_id}}</p>
           <p class="text-item"><span class="label-item">寝室楼：</span>{{ data.student.location}}</p>
           <p class="text-item"><span class="label-item">寝室号：</span>{{ data.student.number}}</p>
-          <p class="text-item" v-if="data.bed_order > 0"><span class="label-item">是否预定床上用品：是</span></p>
-          <p class="text-item" v-else><span class="label-item">是否预定床上用品：否</span></p>
+          <!--<p class="text-item" v-if="data.bed_order > 0"><span class="label-item">是否预定床上用品：是</span></p>-->
+          <!--<p class="text-item" v-else><span class="label-item">是否预定床上用品：否</span></p>-->
+          <p class="text-item"><span class="label-item">是否预定床上用品：{{ data.bed_order > 0 ? "是" : "否" }}</span></p>
         </div>
       </div>
       <button class="resultbutton02" name="result102" v-on:click="inToresult5" >室友信息</button>
@@ -60,7 +61,7 @@
           student_id: '',
           location: '',
           number: '',
-          bed_order: '1',
+          bed_order: '0',
           student: {}
         },
         loading: false,
