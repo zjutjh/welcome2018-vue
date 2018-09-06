@@ -9,30 +9,31 @@
           <img class="logo-background" src="../../UI/校徽.png">
         </div>
         <div class="text">
-          <p class="text-item"><span class="label-item">姓名：</span>{{ data.student.name}}</p>
-          <p class="text-item"><span class="label-item">学号：</span>{{ data.student.student_id}}</p>
-          <p class="text-item"><span class="label-item">寝室楼：</span>{{ data.student.location}}</p>
-          <p class="text-item"><span class="label-item">寝室号：</span>{{ data.student.number}}</p>
+          <p class="text-item"><span class="label-item">姓名：</span>{{ data.name}}</p>
+          <p class="text-item"><span class="label-item">学号：</span>{{ data.student_id}}</p>
+          <p class="text-item"><span class="label-item">寝室楼：</span>{{ data.location}}</p>
+          <p class="text-item"><span class="label-item">寝室号：</span>{{ data.number}}</p>
           <!--<p class="text-item" v-if="data.bed_order > 0"><span class="label-item">是否预定床上用品：是</span></p>-->
           <!--<p class="text-item" v-else><span class="label-item">是否预定床上用品：否</span></p>-->
+          <p class="text-item"><span class="label-item">床是否加长：{{ data.bed_longer > 0 ? "是" : "否" }}</span></p>
           <p class="text-item"><span class="label-item">是否预定床上用品：{{ data.bed_order > 0 ? "是" : "否" }}</span></p>
         </div>
       </div>
       <button class="resultbutton02" name="result102" v-on:click="inToresult5" >室友信息</button>
     </div>
-    <!--<div class="footer">-->
-      <!--<div class="tip">-->
-        <!--<Card :bordered="false">-->
-          <!--<p slot="title">小贴士</p>-->
-          <!--<p v-html="tip"></p>-->
-        <!--</Card>-->
-      <!--</div>-->
-      <!--<p class="cr">©浙江工业大学精弘网络</p>-->
-    <!--</div>-->
+    <div class="footer">
+      <div class="tip">
+        <Card :bordered="false">
+          <p slot="title">小贴士</p>
+          <p v-html="tip"></p>
+        </Card>
+      </div>
+      <p class="cr">©浙江工业大学精弘网络</p>
+    </div>
     <div class="footer">
       <p class="cr">©浙江工业大学精弘网络</p>
     </div>
-    <!--<loading :loading="loading"></loading>-->
+    <loading :loading="loading"></loading>
 
   </div>
 
@@ -47,10 +48,10 @@
     components: {Loading},
     created() {
       this.loading = true;
-      // let _this = this;
-      // this.$http.post('/api/main/tips').then(function(res) {
-      //   _this.tip = res.body.data.tip.content;
-      // });
+      let _this = this;
+      this.$http.post('https://query.zjutjh.com/api/main/tips').then(function(res) {
+        _this.tip = res.body.data.tip.content;
+      });
       this.data = this.$route.params.data.body.data;
       this.loading = false;
     },
@@ -61,7 +62,8 @@
           student_id: '',
           location: '',
           number: '',
-          bed_order: '0',
+          bed_longer: '',
+          bed_order: '',
           student: {}
         },
         loading: false,
@@ -140,9 +142,10 @@
     text-align: left;
     padding: 2rem 4rem;
     position: relative;
-    font-size: 1.4rem;
-    line-height: 3rem;
+    font-size: 1.2rem;
+    line-height: 2.4rem;
     color: rgb(19,63,106);
+    text-align: center;
   }
   .text .label-item{
     display: inline-block;

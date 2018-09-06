@@ -41,7 +41,7 @@
     components: {Loading},
     mounted(){
       let _this = this;
-      this.$http.post('/api/main/tips').then(function(res) {
+      this.$http.post('https://query.zjutjh.com/api/main/tips').then(function(res) {
         _this.tip = res.body.data.tip.content;
       });
     },
@@ -61,7 +61,7 @@
           return;
         }
         let _this = this;
-        this.$http.post('/api/main/dormitory',{ id: _this.id }
+        this.$http.post('https://query.zjutjh.com/api/main/dormitory',{ id: _this.id }
         ).then(function (res){
           if(res.body.code < 0){
             alert(res.body.error);
