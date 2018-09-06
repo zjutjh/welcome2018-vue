@@ -26,6 +26,7 @@
         <Card :bordered="false">
           <p slot="title">小贴士</p>
           <p v-html="tip"></p>
+          <p><a style="color: #fff;" target="_blank" href="https://jq.qq.com/?_wv=1027&k=5gH4P6Q">可以来精弘群咨询</a></p>
         </Card>
       </div>
       <p class="cr">©浙江工业大学精弘网络</p>
