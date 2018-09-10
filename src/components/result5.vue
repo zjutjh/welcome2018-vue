@@ -14,14 +14,14 @@
             <tr>
               <th>姓名</th>
               <th>班级</th>
-              <th>床号</th>
+              <!--<th>床号</th>-->
             </tr>
             </thead>
             <tbody>
             <tr v-for="item in roommates" >
               <td>{{ item.name }}</td>
               <td>{{ item.class }}</td>
-              <td>{{ item.bed }}</td>
+              <!--<td>{{ item.bed }}</td>-->
             </tr>
             </tbody>
           </table>
