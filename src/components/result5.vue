@@ -42,7 +42,7 @@
     name: "result5",
     mounted: async function(){
       this.loading = true;
-      await this.$http.post('https://query.zjutjh.com/api/main/dormitory/roommate', {id: this.$route.params.iid}).then(res => {
+      await this.$http.post('http://dorm.jh.zjutjh.com/api/main/dormitory/roommate', {id: this.$route.params.iid}).then(res => {
         if (res.body.code < 0) {
           alert(res.body.error)
           return;

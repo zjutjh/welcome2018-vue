@@ -27,9 +27,7 @@
       <p class="cr">©浙江工业大学精弘网络</p>
     </div>
     <loading :loading="loading"></loading>
-
   </div>
-
 </template>
 
 <script>
@@ -40,12 +38,12 @@
     name: "result1",
     components: {Loading},
     mounted: async function () {
-      var _this = this
-      this.loading = true
-      const code = this.$route.query.stdcode
+      var _this = this;
+      this.loading = true;
+      const code = this.$route.query.stdcode;
       await this.$http.post('/api/main/detail', {stdcode: code}).then(res => {
         if (res.body.code < 0) {
-          alert(res.body.error)
+          alert(res.body.error);
           return
         }
         this.data = res.body.data

@@ -50,7 +50,7 @@
     created() {
       this.loading = true;
       let _this = this;
-      this.$http.post('https://query.zjutjh.com/api/main/tips').then(function(res) {
+      this.$http.post('http://dorm.jh.zjutjh.com/api/main/tips').then(function(res) {
         _this.tip = res.body.data.tip.content;
       });
       this.data = this.$route.params.data.body.data;
