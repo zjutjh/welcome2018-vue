@@ -31,9 +31,9 @@
       </div>
       <p class="cr">©浙江工业大学精弘网络</p>
     </div>
-    <div class="footer">
-      <p class="cr">©浙江工业大学精弘网络</p>
-    </div>
+    <!--<div class="footer">-->
+      <!--<p class="cr">©浙江工业大学精弘网络</p>-->
+    <!--</div>-->
     <loading :loading="loading"></loading>
 
   </div>
@@ -48,8 +48,8 @@
     name: "result4",
     components: {Loading},
     created() {
-      // this.loading = true;
-      this.loading = false;
+      this.loading = true;
+      // this.loading = false;
       let _this = this;
       this.$http.post('http://dorm.jh.zjutjh.com/api/main/tips').then(function(res) {
         _this.tip = res.body.data.tip.content;
@@ -186,7 +186,7 @@
     width: 100%;
     left: 0;
     /*left: 23.4375rem;*/
-    bottom: 3rem;
+    bottom: 1.6rem;
   }
   .tip{
     text-align: left;
@@ -208,7 +208,7 @@
   .cr{
     text-align: right;
     padding-bottom: 2rem;
-    margin: 3rem 3rem 0;
+    margin: 1.5rem 3rem 0;
     color: #6585be;
     font-size: 1.2rem;
   }
