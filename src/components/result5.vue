@@ -44,7 +44,7 @@
       this.loading = true;
       await this.$http.post('http://dorm.jh.zjutjh.com/api/main/dormitory/roommate', {id: this.$route.params.iid}).then(res => {
         if (res.body.code < 0) {
-          alert(res.body.error)
+          alert(res.body.error);
           return;
         }
         this.roommates = res.body.data.roommates

@@ -48,7 +48,8 @@
     name: "result4",
     components: {Loading},
     created() {
-      this.loading = true;
+      // this.loading = true;
+      this.loading = false;
       let _this = this;
       this.$http.post('http://dorm.jh.zjutjh.com/api/main/tips').then(function(res) {
         _this.tip = res.body.data.tip.content;
